@@ -2,6 +2,11 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+const HbsMirageAssertionTransform = require("./lib/test-hbs-mirage-transform");
+
+const ENVIRONMENT = EmberApp.env();
+const IS_TEST = ENVIRONMENT === "test";
+
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
@@ -19,6 +24,13 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+
+  if (IS_TEST) {
+    app.registry.add('htmlbars-ast-plugin', {
+      name: 'test-hbs-mirage-transform',
+      plugin: HbsMirageAssertionTransform,
+    });
+  }
 
   return app.toTree();
 };
