@@ -1,0 +1,9 @@
+{
+  "name": "mirage-checks",
+  "keywords": [
+    "ember-addon"
+  ],
+  "ember-addon": {
+    "before": "ember-cli-htmlbars"
+  }
+}
