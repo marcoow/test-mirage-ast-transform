@@ -7,8 +7,9 @@ module("cool", function (hooks) {
   setupRenderingTest(hooks);
 
   test("works", async function (assert) {
-    await render(hbs`<div  class={{this.value}}>test</div>`);
+    this.value = "test";
+    await render(hbs`<Cool @contento={{this.value}} />`);
 
-    assert.ok(true);
+    assert.ok(false);
   });
 });
