@@ -10,6 +10,7 @@ module("cool", function (hooks) {
     this.value = "test";
     await render(hbs`<Cool @contento={{this.value}} />`);
 
+    assert.async();
     assert.ok(false);
   });
 });
