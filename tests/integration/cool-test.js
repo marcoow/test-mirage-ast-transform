@@ -8,7 +8,7 @@ module("cool", function (hooks) {
 
   test("works", async function (assert) {
     this.value = "test";
-    await render(hbs`<Cool @contento={{this.value}} />`);
+    await render(hbs`<Cool @content={{value}} hallo="pallo" hurz="kurz" />`);
 
     assert.ok(false);
   });
